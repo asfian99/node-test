@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  app:
+    container_name: docker-node-psql
+    restart: always
+    build: .
+    ports:
+      - "80:5000"
+    external_links:
+      - postgres
+  postgres:
+    container_name: docker-postgres
+    restart: always
+    image: postgres:12.6
+    environment:
+      - POSTGRES_USER=ades
+      - POSTGRES_PASSWORD=ades000
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  postgres:

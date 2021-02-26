@@ -1,0 +1,12 @@
+<html lang="en">
+  <head>
+    <%- include('./partials/head'); %>
+  </head>
+  <body class="container">
+    <p><a href="/books">back</a></p>
+    <h2>Book Detail</h2>
+    <p>Judul : <%= book.title %></p>
+    <p>Sinopsis : <i><%= book.description %></i></p>
+    <p>Penulis : <a href=<%= `${url}/users/${book.author.id}` %>><%= book.author.name %></a></p>
+  </body>
+</html>

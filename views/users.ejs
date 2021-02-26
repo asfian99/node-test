@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <%- include('./partials/head'); %>
+  </head>
+  <body class="container">
+    <p><a href="/">back</a></p>
+    <h2>Users Page</h2>
+
+
+    <p class="mr-4 mt-4">Create New User</p>
+    <form class="d-flex flex-row justify-content-start align-items-center mb-4 mr-8" method="post" action="/users" novalidate>
+      <div class="mr-4">
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" id="username" name="username">
+      </div>
+      <div class="mr-4">
+        <input type="text" class="form-control" placeholder="Full Name" aria-label="Full name" id="fullName" name="fullName">
+      </div>
+      <button type="submit" class="btn btn-primary col-auto">Submit</button>
+    </form>
+
+
+    <p>UserList:</p>
+    <ul>
+      <% names.map((name) => { %>
+      <li><a href=<%= `users/${name.id}` %>><%= name.name %></a></li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

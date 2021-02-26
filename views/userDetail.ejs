@@ -1,0 +1,15 @@
+<html lang="en">
+  <head>
+    <%- include('./partials/head'); %>
+  </head>
+  <body class="container">
+    <p><a href="/users">back</a></p>
+    <h2>Users Detail</h2>
+    <p>Nama : <%= user.name %></p>
+    <p>Username : <i><%= user.username %></i></p>
+    <p>Buku Ciptaan :</p>
+    <% user.books.map((book) => { %>
+      <li><a href=<%= `${url}/books/${book.id}` %>><%= book.title %></a></li>
+      <% }); %>
+  </body>
+</html>
